@@ -12,11 +12,11 @@ export const metadata: Metadata = {
     template: "%s · Nixerino",
   },
   description:
-    "Nicolás Canellas (Nixerino) — +10 años compitiendo al máximo nivel en League of Legends y Valorant. Twitch Partner. Coaching, eventos, colabs y contenido patrocinado.",
+    "Nicolás Canellas (Nixerino) — diez años compitiendo en LoL y Valorant. Twitch Partner. Coaching, eventos, colabs y contenido patrocinado. Sin postureo.",
   openGraph: {
     title: "Nixerino — ex-pro LoL & Valorant · Twitch Partner",
     description:
-      "+10 años pro en LoL y Valorant. Twitch Partner. Coaching, eventos, colabs y contenido.",
+      "Diez años compitiendo. Coaching, eventos, colabs y contenido patrocinado.",
     url: SITE_URL,
     siteName: "Nixerino",
     locale: "es_ES",
@@ -25,8 +25,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Nixerino",
-    description:
-      "+10 años pro en LoL y Valorant. Twitch Partner. Coaching, eventos, colabs y contenido.",
+    description: "Diez años pro. Hoy: Twitch Partner. Coaching, eventos, colabs, contenido.",
     creator: "@n1xerino",
   },
   robots: { index: true, follow: true },
@@ -40,7 +39,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         <link
           rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=JetBrains+Mono:wght@400;700&family=Source+Serif+Pro:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Bungee&family=Bangers&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=JetBrains+Mono:wght@400;600&display=swap"
         />
       </head>
       <body>

@@ -1,5 +1,9 @@
+"use client";
+
 import Link from "next/link";
-import CapybaraIcon from "./CapybaraIcon";
+import { usePathname } from "next/navigation";
+import { CapybaraMini } from "./Capybara";
+import { Tone } from "./Manga";
 
 const NAV = [
   { href: "/", label: "Inicio" },
@@ -11,36 +15,56 @@ const NAV = [
   { href: "/contacto", label: "Contacto" },
 ];
 
+function isActive(pathname: string, href: string) {
+  if (href === "/") return pathname === "/" || pathname === "";
+  return pathname.startsWith(href);
+}
+
 export default function Header() {
+  const pathname = usePathname() || "/";
   return (
-    <header className="border-b border-[var(--color-line)] sticky top-0 z-50 backdrop-blur bg-[color-mix(in_oklab,var(--color-base)_85%,transparent)]">
-      <div className="max-w-[1180px] mx-auto px-6 md:px-10 py-4 flex items-center justify-between gap-6">
-        <Link href="/" className="flex items-center gap-3 group">
-          <span className="text-[color:var(--color-accent)] group-hover:text-[color:var(--color-accent-soft)] transition-colors">
-            <CapybaraIcon size={22} />
+    <header className="sticky top-0 z-40 bg-[color:var(--color-paper)] border-b-[3px] border-[color:var(--color-ink)]">
+      <Tone pattern="dots-sparse" className="absolute inset-0 opacity-15" />
+      <div className="relative max-w-[1280px] mx-auto px-6 py-3 flex items-center gap-6">
+        <Link href="/" className="flex items-center gap-2 group" aria-label="Inicio">
+          <span className="w-10 h-10 bg-[color:var(--color-ink)] flex items-center justify-center text-[color:var(--color-paper)] group-hover:bg-[color:var(--color-red)] transition-colors">
+            <CapybaraMini size={28} />
           </span>
-          <span className="font-display text-[18px] tracking-tight">NIXERINO</span>
-          <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[color:var(--color-mono-dim)] hidden sm:inline">
-            tarjeta profesional
-          </span>
+          <span className="font-display text-2xl tracking-tight leading-none">NIXERINO</span>
         </Link>
-        <nav className="hidden md:flex items-center gap-5">
-          {NAV.slice(1).map((n) => (
-            <Link
-              key={n.href}
-              href={n.href}
-              className="font-mono text-[11px] uppercase tracking-[0.18em] text-[color:var(--color-text-muted)] hover:text-[color:var(--color-accent-soft)] transition-colors"
-            >
-              {n.label}
-            </Link>
-          ))}
+        <nav className="hidden md:flex items-center gap-1 ml-auto">
+          {NAV.map((n) => {
+            const active = isActive(pathname, n.href);
+            return (
+              <Link
+                key={n.href}
+                href={n.href}
+                className={`font-mono text-[11px] uppercase tracking-widest px-3 py-2 border-[2px] transition-all ${
+                  active
+                    ? "border-[color:var(--color-ink)] bg-[color:var(--color-ink)] text-[color:var(--color-paper)]"
+                    : "border-transparent hover:border-[color:var(--color-ink)] hover:bg-[color:var(--color-paper)]"
+                }`}
+              >
+                {n.label}
+              </Link>
+            );
+          })}
         </nav>
-        <Link
-          href="/contacto"
-          className="md:hidden font-mono text-[10px] uppercase tracking-[0.18em] px-3 py-2 border border-[var(--color-accent)] text-[color:var(--color-accent)]"
-        >
-          Contacto
-        </Link>
+        <div className="md:hidden ml-auto">
+          <select
+            value={NAV.find((n) => isActive(pathname, n.href))?.href ?? "/"}
+            onChange={(e) => {
+              window.location.href = e.target.value;
+            }}
+            className="font-mono text-xs uppercase bg-[color:var(--color-paper)] border-[2px] border-[color:var(--color-ink)] px-2 py-1"
+          >
+            {NAV.map((n) => (
+              <option key={n.href} value={n.href}>
+                {n.label}
+              </option>
+            ))}
+          </select>
+        </div>
       </div>
     </header>
   );

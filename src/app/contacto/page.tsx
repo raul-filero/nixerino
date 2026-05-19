@@ -1,53 +1,72 @@
+import Capybara from "@/components/Capybara";
+import { MangaPanel, Tone, SpeechBubble, PageBreak } from "@/components/Manga";
 import ContactForm from "@/components/ContactForm";
-import SocialLinks from "@/components/SocialLinks";
 
 export const metadata = { title: "Contacto" };
 
 export default function ContactoPage() {
   return (
-    <article className="max-w-[1180px] mx-auto px-6 md:px-10 py-16 md:py-24">
-      <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-[color:var(--color-mono-dim)]">
-        Contacto
-      </span>
-      <h1 className="font-display text-[42px] md:text-[64px] leading-[1] tracking-[-0.03em] mt-3 mb-6">
-        Hablemos.
-      </h1>
-      <p className="font-body text-[17px] leading-[1.75] max-w-[60ch] mb-12">
-        Coaching, evento, colab o contenido patrocinado: rellena el formulario y te respondo personalmente. Si ya
-        tienes brief o presupuesto, pégalo en el mensaje, no hace falta floritura.
-      </p>
+    <div className="max-w-[1280px] mx-auto px-6 pt-10 pb-6">
+      <div className="relative mb-10 grid lg:grid-cols-12 gap-6 items-end">
+        <div className="lg:col-span-7">
+          <div className="font-mono text-[11px] uppercase tracking-[0.25em] text-[color:var(--color-ink)]/60">/contacto · cap. 07</div>
+          <h1 className="font-display text-[clamp(72px,12vw,180px)] leading-[0.82] uppercase tracking-tight mt-2">
+            Escríbeme<span className="text-[color:var(--color-red)]">.</span>
+          </h1>
+          <p className="font-serif text-[19px] leading-snug mt-3 max-w-[560px] text-[color:var(--color-ink)]/85">
+            Un formulario. Cinco campos. Respondo en 48–72h en días laborables.
+            Si la propuesta no encaja, te lo digo en una línea. Si encaja, hablamos.
+          </p>
+        </div>
+        <div className="lg:col-span-5 relative">
+          <MangaPanel label="recepción · pág. 07" className="p-6 flex items-center justify-center bg-[color:var(--color-paper-2)] aspect-[4/3] overflow-hidden">
+            <Tone pattern="dots-lg" className="absolute inset-0 opacity-40" />
+            <Capybara variant="reception" size={260} />
+          </MangaPanel>
+          <SpeechBubble tail="bl" className="absolute -bottom-6 right-6 z-10 max-w-[240px]">
+            <div className="font-serif text-[14px]">&quot;Dime para qué me quieres y dime cuándo. Lo demás lo arreglamos.&quot;</div>
+          </SpeechBubble>
+        </div>
+      </div>
 
-      <div className="grid gap-12 md:grid-cols-[1.4fr_1fr]">
-        <ContactForm />
-        <aside className="space-y-8 md:border-l md:border-[var(--color-line)] md:pl-10">
-          <div>
-            <h3 className="font-mono text-[10px] uppercase tracking-[0.22em] text-[color:var(--color-mono-dim)] mb-3">
-              Email directo
-            </h3>
-            <a
-              href="mailto:nixerino@gmail.com"
-              className="font-body text-[16px] hover:text-[color:var(--color-accent-soft)]"
-            >
+      <PageBreak label="formulario · POST → nixerino-contact.muletia.workers.dev" />
+
+      <div className="grid lg:grid-cols-12 gap-6">
+        <MangaPanel className="lg:col-span-8 p-6 sm:p-8">
+          <ContactForm />
+        </MangaPanel>
+
+        <div className="lg:col-span-4 flex flex-col gap-4">
+          <MangaPanel className="p-5" bg="ink">
+            <div className="font-mono text-[11px] uppercase tracking-widest text-[color:var(--color-paper)]/60">o si lo prefieres</div>
+            <div className="font-display text-3xl text-[color:var(--color-paper)] uppercase tracking-tight leading-[0.95] mt-1">Email directo</div>
+            <a href="mailto:nixerino@gmail.com" className="font-mono text-[13px] text-[color:var(--color-red)] mt-2 break-all block hover:underline">
               nixerino@gmail.com
             </a>
-          </div>
-          <div>
-            <h3 className="font-mono text-[10px] uppercase tracking-[0.22em] text-[color:var(--color-mono-dim)] mb-3">
-              Redes
-            </h3>
-            <SocialLinks size="md" />
-          </div>
-          <div className="border border-[var(--color-line)] bg-[color:var(--color-elev)] p-5">
-            <h4 className="font-mono text-[10px] uppercase tracking-[0.22em] text-[color:var(--color-accent)] mb-2">
-              Tiempo de respuesta
-            </h4>
-            <p className="font-body text-[14px] leading-[1.6] text-[color:var(--color-text-muted)]">
-              24–72h en días laborables. Si el evento o la campaña es urgente, dilo en el mensaje y te respondo el
-              mismo día.
+            <p className="font-serif text-[13px] text-[color:var(--color-paper)]/75 mt-2">
+              También funciona. Asunto claro y no me cuentes la vida en línea uno.
             </p>
-          </div>
-        </aside>
+          </MangaPanel>
+
+          <MangaPanel className="p-5">
+            <div className="font-mono text-[11px] uppercase tracking-widest text-[color:var(--color-ink)]/60">tiempo medio respuesta</div>
+            <div className="font-display text-4xl uppercase tracking-tight mt-1">48–72h</div>
+            <p className="font-serif text-[13px] text-[color:var(--color-ink)]/80 mt-2">
+              Lunes–viernes. Fines de semana puedo tardar más. No es mala educación, es vida.
+            </p>
+          </MangaPanel>
+
+          <MangaPanel className="p-5">
+            <div className="font-mono text-[11px] uppercase tracking-widest text-[color:var(--color-ink)]/60">lo que ayuda mucho</div>
+            <ul className="font-serif text-[14px] mt-2 space-y-1.5 text-[color:var(--color-ink)]/85">
+              <li>· decir <b>cuándo</b> lo necesitas</li>
+              <li>· decir <b>presupuesto</b> aunque sea rango</li>
+              <li>· un <b>ejemplo</b> de algo parecido</li>
+              <li>· nombre del que <b>decide</b> al final</li>
+            </ul>
+          </MangaPanel>
+        </div>
       </div>
-    </article>
+    </div>
   );
 }

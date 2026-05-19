@@ -1,147 +1,175 @@
 import Link from "next/link";
+import Capybara, { type CapyVariant } from "@/components/Capybara";
+import { MangaPanel, PhotoSlot, Sfx, PageBreak } from "@/components/Manga";
 
 export const metadata = { title: "Sobre mí" };
 
-const TIMELINE: { year: string; head: string; body: string }[] = [
+type Chapter = {
+  year: string;
+  title: string;
+  sub: string;
+  body: string;
+  photo: { src: string; alt: string; aspect: string };
+  capy: CapyVariant;
+  tone: "lines" | "dots-lg" | "dots-sparse";
+  sfx: string;
+  accent?: boolean;
+};
+
+const CHAPTERS: Chapter[] = [
   {
     year: "2015",
-    head: "Primer roster pro",
-    body: "Overgaming y ThunderX3 Baskonia. ESL, primeros vestuarios de verdad, primer salario de jugador.",
+    title: "El bebé del scrim",
+    sub: "15 años, primer scrim oficial",
+    body: "Empezar en LoL semi-pro con quince. Más nervios que ratón. La primera vez que alguien te pone NIXERINO en la espalda de un jersey y la cosa empieza a ir en serio.",
+    photo: { src: "/img/nixerino-jersey-back.jpg", alt: "Jersey NIXERINO, vista de espaldas", aspect: "3/4" },
+    capy: "idle",
+    tone: "lines",
+    sfx: "BUMP!",
   },
   {
-    year: "2017–18",
-    head: "G2 Vodafone",
-    body: "Era samurái. Bot lane referente del talento español. SuperLiga, picos de audiencia, prensa esports apuntando al equipo.",
+    year: "2018",
+    title: "Era G2 · el samurái",
+    sub: "G2 Vodafone · LoL competitivo",
+    body: "Me empezaron a llamar 'el samurái' en cast. No por ser místico — por jugar sin pestañear y porque el corte de pelo ayudaba. Aprendí a ganar, a perder, a callarme cuando tocaba.",
+    photo: { src: "/img/nixerino-jersey-back.jpg", alt: "Era G2, branding competición", aspect: "3/4" },
+    capy: "sensei",
+    tone: "dots-lg",
+    sfx: "斬!",
+    accent: true,
   },
   {
-    year: "2018–22",
-    head: "Vueltas por la SuperLiga",
-    body: "X6tence, Dragons E.C., S2V, G2 Heretics, BCN Squad, Rebels Gaming. SuperLiga Summer 2021 con 73.000 espectadores simultáneos.",
+    year: "2022",
+    title: "Cambio de juego",
+    sub: "Movistar Riders · Valorant",
+    body: "League cerraba un ciclo. Valorant abría otro. Misma cabeza, otro shooter. Dos años en Riders, circuito VCT EMEA Challengers, mucha avioneta y mucho hotel.",
+    photo: { src: "/img/movistar-riders-era.png", alt: "Poster Movistar Riders, peace sign", aspect: "3/4" },
+    capy: "peace",
+    tone: "dots-lg",
+    sfx: "FLASH!",
   },
   {
-    year: "2022–24",
-    head: "Movistar Riders · Valorant",
-    body: "Salto a Valorant. VCL Spain Rising. Team Spain en Spike Nations. Duelista e iniciador. Profesional en un segundo juego.",
+    year: "2024",
+    title: "Apagar el ratón",
+    sub: "Última temporada pro",
+    body: "Después de diez años decides cuándo bajarte. Sin drama. Hay vida fuera del circuito y resulta que me apetece contarla yo, con cámara propia y sin coach gritándome.",
+    photo: { src: "/img/nixerino-radiant-celebra.jpg", alt: "Celebrando Radiante en Valorant", aspect: "3/4" },
+    capy: "sleeping",
+    tone: "dots-sparse",
+    sfx: "Ω",
   },
   {
-    year: "2024 →",
-    head: "Twitch Partner full-time",
-    body: "Retirada formal del competitivo. Vida fuera del circuito pro, Twitch como casa, coaching y eventos cuando hay buen partner.",
+    year: "Hoy",
+    title: "Twitch Partner",
+    sub: "Streams casi diarios · capibara enjoyer",
+    body: "Directos, vídeos, colabs cuando me apetece. Sin retirada épica ni regreso forzado. Solo un tío con headset rojo que llevaba diez años aquí y ahora lo cuenta desde el otro lado.",
+    photo: { src: "/img/nixerino-streaming-reaction.jpg", alt: "En stream, gafas y headset rojo", aspect: "3/4" },
+    capy: "streamer",
+    tone: "dots-lg",
+    sfx: "LIVE!",
+    accent: true,
   },
 ];
 
 export default function SobreMiPage() {
   return (
-    <article className="max-w-[1180px] mx-auto px-6 md:px-10 py-16 md:py-24">
-      <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-[color:var(--color-mono-dim)]">
-        Sobre mí
-      </span>
-
-      <h1 className="font-display text-[42px] md:text-[68px] leading-[1] tracking-[-0.03em] mt-3 mb-10 max-w-[18ch]">
-        Diez años en el ruido. Hoy, capibara.
-      </h1>
-
-      <div className="grid gap-12 md:grid-cols-[1.3fr_1fr]">
-        <div>
-          <p className="font-body text-[17px] leading-[1.75] mb-5">
-            Me llamo <strong>Nicolás Canellas Colocho</strong>. En internet, Nixerino. Nací y crecí en la Costa
-            Brava, en un entorno donde competir era cosa de toda la familia: ya había un hermano metido en{" "}
-            <em>Day of Defeat</em> antes de que yo supiera deletrear «esports». Mi otro hermano,{" "}
-            <Link href="https://liquipedia.net/counterstrike/Mixwell" className="underline decoration-[color:var(--color-accent)] hover:text-[color:var(--color-accent-soft)]" target="_blank" rel="noopener noreferrer">
-              Mixwell
-            </Link>
-            , se hizo nombre en CS:GO y Valorant. Yo elegí <em>League of Legends</em>.
-          </p>
-          <p className="font-body text-[17px] leading-[1.75] mb-5">
-            Empecé en 2015 con Overgaming y ThunderX3 Baskonia. Luego G2 Vodafone, en la era en la que la organización
-            se llamaba a sí misma «samuráis» — me llevé el apodo y me quedé con él como con un anillo viejo. Pasé por
-            X6tence, Dragons E.C., S2V, G2 Heretics, BCN Squad, Rebels Gaming. SuperLiga año tras año. AD Carry, bot
-            lane, picos como aquel 73.000 simultáneos del Summer 2021 que se me grabó como un examen aprobado.
-          </p>
-          <p className="font-body text-[17px] leading-[1.75] mb-5">
-            En 2022 me pasé a <strong>Valorant</strong>. Fiché por <strong>Movistar Riders</strong> a finales de ese
-            año y competí en VCL Spain. Representé a España con Team Spain en Spike Nations. Hay muy poca gente en
-            este país que pueda decir que fue profesional en dos juegos distintos — yo soy una de esas pocas, y no lo
-            digo por presumir, lo digo porque condiciona cómo enseño.
-          </p>
-          <p className="font-body text-[17px] leading-[1.75] mb-5">
-            En febrero de 2024 anuncié la retirada formal del competitivo. Hoy trabajo fuera del circuito pro y hago
-            directo en <strong>Twitch como Partner</strong> sin depender del foco. Más tranquilo, más estable, con
-            margen para hacer cosas con cabeza. La{" "}
-            <span className="text-[color:var(--color-accent-soft)]">capibara</span> de la bio no es broma del todo: es
-            la energía con la que quiero llevar esta etapa.
-          </p>
-          <p className="font-body text-[17px] leading-[1.75]">
-            Si lees esto pensando en una colaboración —coaching, evento, una marca, un formato—{" "}
-            <Link href="/contacto" className="underline decoration-[color:var(--color-accent)] hover:text-[color:var(--color-accent-soft)]">
-              cuéntame qué tienes en mente
-            </Link>{" "}
-            y te respondo personalmente.
-          </p>
-        </div>
-
-        <aside className="space-y-6">
-          <figure className="border border-[var(--color-line)] bg-[color:var(--color-elev)] bg-hatch relative aspect-[3/4] overflow-hidden">
-            <div className="absolute inset-0 grid place-items-center text-center px-4">
-              <div>
-                <span className="block font-mono text-[10px] uppercase tracking-[0.32em] text-[color:var(--color-mono-dim)]">
-                  2015 — 2022
-                </span>
-                <span className="block font-display text-[44px] md:text-[56px] leading-[0.95] text-[color:var(--color-text)] mt-2">
-                  ERA LOL
-                </span>
-                <span className="block font-body italic text-[14px] text-[color:var(--color-g2)] mt-3">
-                  «el samurái»
-                </span>
-                <span className="block font-mono text-[10px] uppercase tracking-[0.22em] text-[color:var(--color-text-muted)] mt-3">
-                  G2 Vodafone · Heretics · Rebels
-                </span>
-              </div>
-            </div>
-          </figure>
-
-          <figure className="border border-[var(--color-line)] bg-[color:var(--color-elev)] bg-hatch relative aspect-[3/4] overflow-hidden">
-            <div className="absolute inset-0 grid place-items-center text-center px-4">
-              <div>
-                <span className="block font-mono text-[10px] uppercase tracking-[0.32em] text-[color:var(--color-mono-dim)]">
-                  2022 — 2024
-                </span>
-                <span className="block font-display text-[44px] md:text-[56px] leading-[0.95] text-[color:var(--color-text)] mt-2">
-                  ERA VALO
-                </span>
-                <span className="block font-body italic text-[14px] text-[color:var(--color-accent-soft)] mt-3">
-                  duelista &amp; iniciador
-                </span>
-                <span className="block font-mono text-[10px] uppercase tracking-[0.22em] text-[color:var(--color-text-muted)] mt-3">
-                  Movistar Riders · Team Spain
-                </span>
-              </div>
-            </div>
-          </figure>
-        </aside>
+    <div className="max-w-[1280px] mx-auto px-6 pt-10 pb-6">
+      <div className="relative mb-10">
+        <div className="font-mono text-[11px] uppercase tracking-[0.25em] text-[color:var(--color-ink)]/60">/sobre-mi · cap. 02</div>
+        <h1 className="font-display text-[clamp(56px,10vw,140px)] leading-[0.85] uppercase tracking-tight mt-2">
+          <span className="block">Diez años</span>
+          <span className="block">en <span className="text-[color:var(--color-red)]">tres viñetas</span>.</span>
+        </h1>
+        <Sfx className="absolute top-0 right-0" rotate={-8} color="var(--color-red)" size={80}>BANG!</Sfx>
       </div>
 
-      <section className="mt-20 border-t border-[var(--color-line)] pt-12">
-        <h2 className="font-display text-[26px] md:text-[36px] tracking-[-0.02em] mb-10">Línea de tiempo</h2>
-        <ol className="space-y-8">
-          {TIMELINE.map((t, i) => (
-            <li key={t.year} className="grid md:grid-cols-[120px_1fr] gap-4 md:gap-10 items-baseline">
-              <div className="font-mono text-[13px] uppercase tracking-[0.22em] text-[color:var(--color-accent)] flex items-baseline gap-3">
-                <span className="text-[color:var(--color-mono-dim)]">
-                  {(i + 1).toString().padStart(2, "0")}
-                </span>
-                {t.year}
+      <MangaPanel className="p-5 mb-12 flex items-start gap-4" label="nota al margen">
+        <Capybara variant="idle" size={64} />
+        <div className="font-serif text-[14px] leading-snug text-[color:var(--color-ink)]/85 max-w-[700px]">
+          <b>Sobre lo de mi hermano.</b> Mixwell es leyenda CS:GO/Valorant y es mi hermano mayor.
+          Lo digo aquí una vez porque viene en mi biografía y porque me preguntan.
+          No estoy aquí para reclamar nada por su carrera — la mía la firmé yo. Gracias.
+        </div>
+      </MangaPanel>
+
+      <div className="flex flex-col gap-12">
+        {CHAPTERS.map((c, i) => {
+          const reverse = i % 2 === 1;
+          return (
+            <div key={c.year} className="grid lg:grid-cols-12 gap-6 items-start">
+              <div className={`lg:col-span-5 ${reverse ? "lg:order-2" : ""}`}>
+                <MangaPanel className="p-3" label={`escena · ${i + 1}/5`}>
+                  <PhotoSlot src={c.photo.src} alt={c.photo.alt} aspect={c.photo.aspect} tone={c.tone} />
+                </MangaPanel>
               </div>
-              <div>
-                <h3 className="font-display text-[18px] tracking-tight mb-1">{t.head}</h3>
-                <p className="font-body text-[15px] leading-[1.65] text-[color:var(--color-text-muted)] max-w-[60ch]">
-                  {t.body}
-                </p>
+              <div className={`lg:col-span-7 relative ${reverse ? "lg:order-1" : ""}`}>
+                <MangaPanel className={`p-6 ${c.accent ? "" : ""}`} bg={c.accent ? "ink" : "paper"}>
+                  <div className="flex items-start justify-between gap-4 mb-3">
+                    <div>
+                      <div className={`font-mono text-[11px] uppercase tracking-widest ${c.accent ? "text-[color:var(--color-paper)]/60" : "text-[color:var(--color-ink)]/60"}`}>
+                        capítulo {String(i + 1).padStart(2, "0")} · {c.sub}
+                      </div>
+                      <h2 className="font-display text-[clamp(40px,6vw,72px)] leading-[0.9] tracking-tight uppercase mt-1">
+                        <span className="text-[color:var(--color-red)]">{c.year}</span> · {c.title}
+                      </h2>
+                    </div>
+                    <div className="shrink-0">
+                      <Capybara variant={c.capy} size={120} />
+                    </div>
+                  </div>
+                  <p className={`font-serif text-[17px] leading-relaxed ${c.accent ? "text-[color:var(--color-paper)]/90" : "text-[color:var(--color-ink)]/90"} max-w-[640px]`}>
+                    {c.body}
+                  </p>
+                  <Sfx className={`absolute ${reverse ? "-left-4" : "-right-4"} -bottom-6 z-10`} rotate={reverse ? 10 : -10} color="var(--color-red)" size={48}>
+                    {c.sfx}
+                  </Sfx>
+                </MangaPanel>
               </div>
-            </li>
-          ))}
-        </ol>
-      </section>
-    </article>
+            </div>
+          );
+        })}
+      </div>
+
+      <PageBreak label="lo que no me vas a sacar" sfx="…" />
+
+      <div className="grid md:grid-cols-3 gap-6">
+        {[
+          { t: "Cifras de premios", d: "No vas a encontrar cuánto se cobró en X torneo. Era trabajo, no anécdota viral." },
+          { t: "Posiciones específicas", d: "Hablo de circuitos en los que participé. Resultados concretos no son la historia." },
+          { t: "Lo personal", d: "Las razones por las que decidí cuándo retirarme son mías. Si te interesa, lee otra cosa." },
+        ].map((it) => (
+          <MangaPanel key={it.t} className="p-5">
+            <div className="font-mono text-[10px] uppercase tracking-widest text-[color:var(--color-ink)]/60 mb-2">nope</div>
+            <div className="font-display text-2xl uppercase tracking-tight mb-2">{it.t}</div>
+            <p className="font-serif text-[14px] leading-snug text-[color:var(--color-ink)]/80">{it.d}</p>
+          </MangaPanel>
+        ))}
+      </div>
+
+      <PageBreak label="próximo capítulo" />
+
+      <div className="grid md:grid-cols-2 gap-6">
+        <MangaPanel className="p-6 flex items-center gap-4">
+          <Capybara variant="reception" size={120} />
+          <div>
+            <div className="font-mono text-[11px] uppercase tracking-widest text-[color:var(--color-ink)]/60">si quieres trabajar conmigo</div>
+            <div className="font-display text-3xl uppercase tracking-tight">→ Contacto</div>
+            <Link href="/contacto" className="mt-2 inline-block font-display text-base uppercase bg-[color:var(--color-ink)] text-[color:var(--color-paper)] px-4 py-2 border-[2px] border-[color:var(--color-ink)]" style={{ boxShadow: "4px 4px 0 var(--color-red)" }}>
+              Abrir formulario
+            </Link>
+          </div>
+        </MangaPanel>
+        <MangaPanel className="p-6 flex items-center gap-4" bg="ink">
+          <Capybara variant="streamer" size={120} />
+          <div>
+            <div className="font-mono text-[11px] uppercase tracking-widest text-[color:var(--color-paper)]/60">si solo quieres ver streams</div>
+            <div className="font-display text-3xl uppercase tracking-tight text-[color:var(--color-paper)]">→ Contenido</div>
+            <Link href="/contenido" className="mt-2 inline-block font-display text-base uppercase bg-[color:var(--color-red)] text-[color:var(--color-paper)] px-4 py-2 border-[2px] border-[color:var(--color-paper)]" style={{ boxShadow: "4px 4px 0 var(--color-paper)" }}>
+              Ver directo
+            </Link>
+          </div>
+        </MangaPanel>
+      </div>
+    </div>
   );
 }
