@@ -1,0 +1,13 @@
+name = "nixerino-contact"
+main = "src/worker.js"
+compatibility_date = "2026-05-01"
+workers_dev = true
+
+[vars]
+TO_EMAIL = "nixerino@gmail.com"
+FROM_EMAIL = "noreply@hefaia.com"
+FROM_NAME = "nixerino.hefaia.com"
+
+# Si en algún momento se quiere migrar a Resend, basta con poner el secret:
+#   wrangler secret put RESEND_API_KEY
+# y el worker detectará la variable y la usará en lugar de MailChannels.
