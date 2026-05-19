@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Capybara, { type CapyVariant } from "@/components/Capybara";
-import { MangaPanel, PhotoSlot, SpeechBubble, Sfx, PageBreak, Tone } from "@/components/Manga";
+import { MangaPanel, PhotoSlot, Sfx, PageBreak, Tone } from "@/components/Manga";
+import TweetCarousel from "@/components/TweetCarousel";
 
 type Vertical = {
   num: string;
@@ -88,24 +89,26 @@ export default function HomePage() {
           <div className="lg:col-span-7 flex flex-col gap-6">
             <div className="flex items-center gap-3">
               <span className="font-mono text-[11px] uppercase tracking-[0.25em] bg-[color:var(--color-ink)] text-[color:var(--color-paper)] px-2 py-1">cap. 01</span>
-              <span className="font-mono text-[11px] uppercase tracking-[0.25em] text-[color:var(--color-ink)]/70">la carta de presentación</span>
+              <span className="font-mono text-[11px] uppercase tracking-[0.25em] text-[color:var(--color-ink)]/70">disparo de salida</span>
             </div>
             <h1 className="font-display text-[clamp(64px,11vw,168px)] leading-[0.82] tracking-[-0.02em] uppercase">
-              <span className="block">El sa<span className="text-[color:var(--color-red)]">murái</span></span>
+              <span className="block">Shot.</span>
+              <span className="block">Reload.</span>
               <span className="block relative">
-                que se{" "}
-                <span className="relative inline-block">
-                  retiró
+                Apuntando al{" "}
+                <span className="relative inline-block text-[color:var(--color-red)]">
+                  éxito
                   <svg className="absolute -bottom-3 left-0 w-full" height="14" viewBox="0 0 200 14" preserveAspectRatio="none">
                     <path d="M2 8 Q60 2, 100 8 T 198 6" stroke="#D33A2C" strokeWidth="5" fill="none" strokeLinecap="round" />
                   </svg>
                 </span>
+                .
               </span>
-              <span className="block text-[color:var(--color-ink)]/35">a hacer streams.</span>
             </h1>
             <p className="font-serif text-[19px] leading-snug max-w-[560px]">
-              Nicolás Canellas, <b>27</b>. Diez años compitiendo en <b>League of Legends</b> y <b>Valorant</b>.
-              Hoy: <b>Twitch Partner</b>, capibara enjoyer, contratable para cuatro cosas concretas. Cero postureo.
+              Nicolás Canellas, <b>27</b>. Diez años apuntando alto en <b>League of Legends</b> y <b>Valorant</b>.
+              <b> Twitch Partner</b> activo, aim entrenado, cabeza fría. Contratable para cuatro cosas concretas.
+              Cero postureo.
             </p>
             <div className="flex flex-wrap gap-3 pt-2">
               <Link
@@ -150,10 +153,7 @@ export default function HomePage() {
                 sizes="(max-width: 1024px) 90vw, 500px"
               />
               <div className="absolute -bottom-6 -left-6 z-20">
-                <SpeechBubble tail="br" className="max-w-[240px]">
-                  <div className="font-mono text-[10px] uppercase tracking-widest text-[color:var(--color-ink)]/60 mb-1">nixerino · pensando</div>
-                  <div className="font-serif text-[15px] leading-snug">&quot;…cuánta gente normal hay en este puto juego.&quot;</div>
-                </SpeechBubble>
+                <TweetCarousel />
               </div>
               <Sfx className="absolute -top-8 -right-2 z-20" rotate={10} color="var(--color-red)" size={56}>POG!</Sfx>
             </MangaPanel>
