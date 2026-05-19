@@ -48,10 +48,7 @@ export default function Footer() {
       <div className="border-t border-[var(--color-line)]">
         <div className="max-w-[1180px] mx-auto px-6 md:px-10 py-4 flex flex-wrap items-center justify-between gap-3 font-mono text-[10px] uppercase tracking-[0.2em] text-[color:var(--color-mono-dim)]">
           <span>© {new Date().getFullYear()} Nicolás Canellas</span>
-          <span>
-            Construido con cariño en{" "}
-            <a href="https://hefaia.com" className="hover:text-[color:var(--color-accent-soft)]">hefaia.com</a>
-          </span>
+          <span>Capibara lover · Costa Brava</span>
         </div>
       </div>
     </footer>
