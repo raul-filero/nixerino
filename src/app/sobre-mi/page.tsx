@@ -76,7 +76,7 @@ export default function SobreMiPage() {
     <div className="max-w-[1280px] mx-auto px-6 pt-10 pb-6">
       <div className="relative mb-10">
         <div className="font-mono text-[11px] uppercase tracking-[0.25em] text-[color:var(--color-ink)]/60">/sobre-mi · cap. 02</div>
-        <h1 className="font-display text-[clamp(56px,10vw,140px)] leading-[0.85] uppercase tracking-tight mt-2">
+        <h1 className="font-display text-[clamp(40px,6.5vw,88px)] leading-[0.9] uppercase tracking-tight mt-2 break-words">
           <span className="block">Diez años</span>
           <span className="block">en <span className="text-[color:var(--color-red)]">tres viñetas</span>.</span>
         </h1>

@@ -10,7 +10,7 @@ export default function ContactoPage() {
       <div className="relative mb-10 grid lg:grid-cols-12 gap-6 items-end">
         <div className="lg:col-span-7">
           <div className="font-mono text-[11px] uppercase tracking-[0.25em] text-[color:var(--color-ink)]/60">/contacto · cap. 07</div>
-          <h1 className="font-display text-[clamp(48px,8vw,112px)] leading-[0.85] uppercase tracking-tight mt-2">
+          <h1 className="font-display text-[clamp(40px,6vw,80px)] leading-[0.9] uppercase tracking-tight mt-2 break-words">
             Escríbeme<span className="text-[color:var(--color-red)]">.</span>
           </h1>
           <p className="font-serif text-[19px] leading-snug mt-3 max-w-[560px] text-[color:var(--color-ink)]/85">

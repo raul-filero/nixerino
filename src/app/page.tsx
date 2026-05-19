@@ -91,14 +91,14 @@ export default function HomePage() {
               <span className="font-mono text-[11px] uppercase tracking-[0.25em] bg-[color:var(--color-ink)] text-[color:var(--color-paper)] px-2 py-1">cap. 01</span>
               <span className="font-mono text-[11px] uppercase tracking-[0.25em] text-[color:var(--color-ink)]/70">disparo de salida</span>
             </div>
-            <h1 className="font-display text-[clamp(64px,11vw,168px)] leading-[0.82] tracking-[-0.02em] uppercase">
+            <h1 className="font-display text-[clamp(40px,6.5vw,88px)] leading-[0.9] tracking-[-0.02em] uppercase">
               <span className="block">Shot.</span>
               <span className="block">Reload.</span>
               <span className="block relative">
                 Apuntando al{" "}
                 <span className="relative inline-block text-[color:var(--color-red)]">
                   éxito
-                  <svg className="absolute -bottom-3 left-0 w-full" height="14" viewBox="0 0 200 14" preserveAspectRatio="none">
+                  <svg className="absolute -bottom-2 left-0 w-full" height="10" viewBox="0 0 200 14" preserveAspectRatio="none">
                     <path d="M2 8 Q60 2, 100 8 T 198 6" stroke="#D33A2C" strokeWidth="5" fill="none" strokeLinecap="round" />
                   </svg>
                 </span>

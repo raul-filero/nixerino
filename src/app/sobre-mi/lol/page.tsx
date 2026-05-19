@@ -114,7 +114,7 @@ export default function CVLolPage() {
       <div className="relative mb-10 grid lg:grid-cols-12 gap-6 items-end">
         <div className="lg:col-span-8">
           <div className="font-mono text-[11px] uppercase tracking-[0.25em] text-[color:var(--color-ink)]/60">/sobre-mi/lol · cv era 01</div>
-          <h1 className="font-display text-[clamp(56px,10vw,128px)] leading-[0.85] uppercase tracking-tight mt-2">
+          <h1 className="font-display text-[clamp(40px,6vw,80px)] leading-[0.9] uppercase tracking-tight mt-2 break-words">
             ERA <span className="text-[color:var(--color-red)]">LoL</span>.
             <br /> 2015 → 2022.
           </h1>
