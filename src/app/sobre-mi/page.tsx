@@ -83,6 +83,78 @@ export default function SobreMiPage() {
         <Sfx className="absolute top-0 right-0" rotate={-8} color="var(--color-red)" size={80}>BANG!</Sfx>
       </div>
 
+      <MangaPanel className="p-6 mb-8" label="ficha rápida">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div>
+            <div className="font-mono text-[10px] uppercase tracking-widest text-[color:var(--color-ink)]/60">nombre real</div>
+            <div className="font-display text-xl tracking-tight mt-1">Nicolás Canellas Colocho</div>
+          </div>
+          <div>
+            <div className="font-mono text-[10px] uppercase tracking-widest text-[color:var(--color-ink)]/60">de</div>
+            <div className="font-display text-xl tracking-tight mt-1">Costa Brava · 🇪🇸</div>
+          </div>
+          <div>
+            <div className="font-mono text-[10px] uppercase tracking-widest text-[color:var(--color-ink)]/60">edad</div>
+            <div className="font-display text-xl tracking-tight mt-1">27</div>
+          </div>
+          <div>
+            <div className="font-mono text-[10px] uppercase tracking-widest text-[color:var(--color-ink)]/60">categoría</div>
+            <div className="font-display text-xl tracking-tight mt-1">Twitch Partner</div>
+          </div>
+          <div>
+            <div className="font-mono text-[10px] uppercase tracking-widest text-[color:var(--color-ink)]/60">juegos pro</div>
+            <div className="font-display text-xl tracking-tight mt-1">LoL · Valorant</div>
+          </div>
+          <div>
+            <div className="font-mono text-[10px] uppercase tracking-widest text-[color:var(--color-ink)]/60">rol histórico</div>
+            <div className="font-display text-xl tracking-tight mt-1">ADC · Duelista</div>
+          </div>
+          <div>
+            <div className="font-mono text-[10px] uppercase tracking-widest text-[color:var(--color-ink)]/60">idiomas</div>
+            <div className="font-display text-xl tracking-tight mt-1">ES · CAT · EN</div>
+          </div>
+          <div>
+            <div className="font-mono text-[10px] uppercase tracking-widest text-[color:var(--color-ink)]/60">aficiones</div>
+            <div className="font-display text-xl tracking-tight mt-1">Series · Anime · Cine</div>
+          </div>
+        </div>
+      </MangaPanel>
+
+      <div className="grid md:grid-cols-2 gap-5 mb-8">
+        <Link
+          href="/sobre-mi/lol"
+          className="block bg-[color:var(--color-paper)] border-[3px] border-[color:var(--color-ink)] p-5 hover:-translate-y-1 hover:translate-x-0.5 transition-transform"
+          style={{ boxShadow: "6px 6px 0 var(--color-ink)" }}
+        >
+          <div className="flex items-center justify-between gap-3">
+            <div>
+              <div className="font-mono text-[10px] uppercase tracking-widest text-[color:var(--color-ink)]/60">cv detallado · era 01</div>
+              <div className="font-display text-2xl uppercase tracking-tight mt-1">ERA LoL — 2015 → 2022</div>
+              <p className="font-serif text-[13px] leading-snug text-[color:var(--color-ink)]/75 mt-1">
+                11 equipos · 7 años SuperLiga · era G2 Vodafone como &quot;el samurái&quot;
+              </p>
+            </div>
+            <span className="font-display text-3xl text-[color:var(--color-red)] shrink-0">→</span>
+          </div>
+        </Link>
+        <Link
+          href="/sobre-mi/valorant"
+          className="block bg-[color:var(--color-paper)] border-[3px] border-[color:var(--color-ink)] p-5 hover:-translate-y-1 hover:translate-x-0.5 transition-transform"
+          style={{ boxShadow: "6px 6px 0 var(--color-ink)" }}
+        >
+          <div className="flex items-center justify-between gap-3">
+            <div>
+              <div className="font-mono text-[10px] uppercase tracking-widest text-[color:var(--color-ink)]/60">cv detallado · era 02</div>
+              <div className="font-display text-2xl uppercase tracking-tight mt-1">ERA VALORANT — 2022 → 2024</div>
+              <p className="font-serif text-[13px] leading-snug text-[color:var(--color-ink)]/75 mt-1">
+                Movistar Riders · Team Spain · VCL EMEA Challengers
+              </p>
+            </div>
+            <span className="font-display text-3xl text-[color:var(--color-red)] shrink-0">→</span>
+          </div>
+        </Link>
+      </div>
+
       <MangaPanel className="p-5 mb-12 flex items-start gap-4" label="nota al margen">
         <Capybara variant="idle" size={64} />
         <div className="font-serif text-[14px] leading-snug text-[color:var(--color-ink)]/85 max-w-[700px]">

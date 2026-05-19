@@ -28,7 +28,7 @@ export default function ContenidoPage() {
       <div className="relative mb-10 flex items-end justify-between flex-wrap gap-6">
         <div>
           <div className="font-mono text-[11px] uppercase tracking-[0.25em] text-[color:var(--color-ink)]/60">/contenido · cap. 06</div>
-          <h1 className="font-display text-[clamp(72px,12vw,180px)] leading-[0.82] uppercase tracking-tight mt-2">
+          <h1 className="font-display text-[clamp(48px,8vw,112px)] leading-[0.85] uppercase tracking-tight mt-2">
             Contenido<span className="text-[color:var(--color-red)]">.</span>
           </h1>
           <p className="font-serif text-[19px] leading-snug mt-3 max-w-[640px] text-[color:var(--color-ink)]/85">
