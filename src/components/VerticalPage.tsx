@@ -86,7 +86,7 @@ const FAQ: [string, string][] = [
   ["¿Cuánto cuesta?", "Consultar. Depende del formato, del tiempo, de si lo grabamos o no. Te lo digo en el primer email."],
   ["¿En cuánto tiempo respondes?", "48–72h en días laborables. Si tardo más, escríbeme otra vez sin disculparte."],
   ["¿Trabajas con quien no tiene marca grande detrás?", "Sí. Lo importante es el brief, no el logo."],
-  ["¿Inglés / catalán?", "Sí ambos. El stream es en castellano principalmente."],
+  ["¿Inglés / catalán / francés?", "Los tres. El stream es en castellano principalmente."],
 ];
 
 export default function VerticalPageContent({ slug }: { slug: Slug }) {

@@ -111,7 +111,7 @@ export default function SobreMiPage() {
           </div>
           <div>
             <div className="font-mono text-[10px] uppercase tracking-widest text-[color:var(--color-ink)]/60">idiomas</div>
-            <div className="font-display text-xl tracking-tight mt-1">ES · CAT · EN</div>
+            <div className="font-display text-xl tracking-tight mt-1">ES · CAT · EN · FR</div>
           </div>
           <div>
             <div className="font-mono text-[10px] uppercase tracking-widest text-[color:var(--color-ink)]/60">aficiones</div>
