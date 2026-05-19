@@ -80,11 +80,14 @@ type PhotoSlotProps = {
 };
 
 export function PhotoSlot({ src, alt, aspect = "1/1", className = "", tone = "lines", priority, sizes }: PhotoSlotProps) {
+  // next/image con output:'export' + basePath no prepende basePath al src.
+  // Lo hacemos aquí a mano para que /img/X resuelva a /nixerino/img/X en producción.
+  const resolvedSrc = src.startsWith("/") && !src.startsWith("/nixerino") ? `/nixerino${src}` : src;
   return (
     <div className={`relative overflow-hidden bg-[#1A1814] ${className}`} style={{ aspectRatio: aspect }}>
       <Tone pattern={tone} className="absolute inset-0 opacity-25 z-10" />
       <Image
-        src={src}
+        src={resolvedSrc}
         alt={alt}
         fill
         sizes={sizes || "(max-width: 768px) 80vw, 600px"}
